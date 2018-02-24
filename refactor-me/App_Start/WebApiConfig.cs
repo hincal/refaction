@@ -1,4 +1,9 @@
-﻿using System.Web.Http;
+﻿using refactor_me.Database;
+using refactor_me.Repositories;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
+using System.Configuration;
+using System.Web.Http;
 
 namespace refactor_me
 {
@@ -6,6 +11,21 @@ namespace refactor_me
     {
         public static void Register(HttpConfiguration config)
         {
+            //  SimpleInjector definitions
+            var container = new Container();
+
+            //  Register DbConnectionFactory to SimpleInjector
+            var connectionString = ConfigurationManager.ConnectionStrings["connString"].ConnectionString;
+            container.Register<IDbConnectionFactory>(() => new DbConnectionFactory(connectionString));
+
+            //  Register other instances
+            container.Register<IProductRepository, ProductRepository>();
+            container.Register<IProductOptionRepository, ProductOptionRepository>();
+            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+            container.Verify();
+
+            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+
             // Web API configuration and services
             var formatters = GlobalConfiguration.Configuration.Formatters;
             formatters.Remove(formatters.XmlFormatter);
