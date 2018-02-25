@@ -106,7 +106,6 @@ Thumbs.db
 
 # Folder config file
 Desktop.ini
-*.ldf
 
 # IntelliJ IDEA / WebStorm
 *.iml

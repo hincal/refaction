@@ -98,7 +98,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\TestDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\TestDatabase_log.ldf">
+      <DependentUpon>TestDatabase.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
