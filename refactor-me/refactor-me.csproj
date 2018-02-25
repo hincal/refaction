@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ProductOptionsController.cs" />
     <Compile Include="Repositories\ProductOptionRepository.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Database\IDbConnectionFactory.cs" />

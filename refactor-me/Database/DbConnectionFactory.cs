@@ -3,6 +3,9 @@ using System.Data.SqlClient;
 
 namespace refactor_me.Database
 {
+    /// <summary>
+    /// This class provides Open SqlConnection object.
+    /// </summary>
     public class DbConnectionFactory : IDbConnectionFactory
     {
         private string _connectionString;

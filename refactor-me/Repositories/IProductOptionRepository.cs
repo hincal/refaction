@@ -1,12 +1,12 @@
-﻿using refactor_me.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using refactor_me.Models;
 
 namespace refactor_me.Repositories
 {
+    /// <summary>
+    /// This interface provides necessary methods for ProductOption Repository.
+    /// </summary>
     public interface IProductOptionRepository
     {
         IList<ProductOption> GetByProductId(Guid productId);

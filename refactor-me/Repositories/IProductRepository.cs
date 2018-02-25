@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace refactor_me.Repositories
 {
+    /// <summary>
+    /// This interface provides necessary methods for Product Repository.
+    /// </summary>
     public interface IProductRepository
     {
         IList<Product> GetAll();

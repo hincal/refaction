@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace refactor_me.Repositories
 {
+    /// <summary>
+    /// Data Access Layer to ProductOption Table
+    /// </summary>
     public class ProductOptionRepository : IProductOptionRepository
     {
         private const string SQL_SELECT_BY_PRODUCTID = "select * from ProductOption where productId = @ProductId";
@@ -24,6 +27,11 @@ namespace refactor_me.Repositories
             _dbConnectionFactory = dbConnectionFactory;
         }
 
+        /// <summary>
+        /// Queries ProductOption table by ProductId
+        /// </summary>
+        /// <param name="productId">ProductId</param>
+        /// <returns>ProductOption entities as List<ProductOption></returns>
         public IList<ProductOption> GetByProductId(Guid productId)
         {
             using (var dbConn = _dbConnectionFactory.GetOpenConnection())
@@ -33,6 +41,11 @@ namespace refactor_me.Repositories
             }
         }
 
+        /// <summary>
+        /// Queries ProductOption table by Id
+        /// </summary>
+        /// <param name="id">ProductOptionId</param>
+        /// <returns>Matching ProductOption entity</returns>
         public ProductOption GetById(Guid id)
         {
             using (var dbConn = _dbConnectionFactory.GetOpenConnection())
@@ -42,6 +55,11 @@ namespace refactor_me.Repositories
             }
         }
 
+        /// <summary>
+        /// Inserts productOption entity to ProductOption table
+        /// </summary>
+        /// <param name="productOption">productOption entity</param>
+        /// <returns>bool value regarding to outcome</returns>
         public bool Create(ProductOption productOption)
         {
             var retVal = false;
@@ -55,6 +73,11 @@ namespace refactor_me.Repositories
             return retVal;
         }
 
+        /// <summary>
+        /// Updates productOption entity
+        /// </summary>
+        /// <param name="productOption">productOption entity</param>
+        /// <returns>bool value regarding to outcome</returns>
         public bool Update(ProductOption productOption)
         {
             var retVal = false;
@@ -68,6 +91,10 @@ namespace refactor_me.Repositories
             return retVal;
         }
 
+        /// <summary>
+        /// Deletes productOption from ProductOption table by ProductOptionId
+        /// </summary>
+        /// <param name="id">ProductOptionId</param>
         public void Delete(Guid id)
         {
             using (var dbConn = _dbConnectionFactory.GetOpenConnection())
@@ -76,6 +103,10 @@ namespace refactor_me.Repositories
             }
         }
 
+        /// <summary>
+        /// Deletes productOption entities from ProductOption table by ProductId
+        /// </summary>
+        /// <param name="productId">productId</param>
         public void DeleteByProductId(Guid productId)
         {
             using (var dbConn = _dbConnectionFactory.GetOpenConnection())
