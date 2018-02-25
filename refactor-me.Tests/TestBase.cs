@@ -23,8 +23,7 @@ namespace refactor_me.Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            //  Define data directory and initialize database connection factory
-            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database"));
+            //  Initialize database connection factory
             var connectionString = ConfigurationManager.ConnectionStrings["connString"].ConnectionString;
             _dbConnectionFactory = new DbConnectionFactory(connectionString);
 
@@ -35,6 +34,8 @@ namespace refactor_me.Tests
             //  initialize controllers
             _productController = new ProductsController(productRepository);
             _productOptionController = new ProductOptionsController(productOptionRepository);
+
+            InitializeDatabase();
         }
 
         private void InitializeDatabase()
