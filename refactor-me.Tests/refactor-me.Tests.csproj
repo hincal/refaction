@@ -100,10 +100,6 @@
     <Content Include="Database\TestDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database\TestDatabase_log.ldf">
-      <DependentUpon>TestDatabase.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\refactor-me\refactor-me.csproj">
